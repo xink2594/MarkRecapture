@@ -1,0 +1,66 @@
+/* src/components/Results.css */
+
+.results-panel {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #34495e;
+}
+
+.results-panel h3 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 结果展示网格 */
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 创建两列 */
+  gap: 15px 20px; /* 行间距 和 列间距 */
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.result-grid strong {
+  color: #2c3e50;
+}
+
+/* 分隔线样式 */
+.result-grid hr {
+  grid-column: 1 / -1; /* 让 hr 横跨所有列 */
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 0;
+}
+
+/* 强调“模拟估算值” */
+.result-grid .emphasis {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2980b9;
+  grid-column: 1 / -1; /* 横跨所有列 */
+  text-align: center;
+  padding: 10px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+}
+
+/* 强调“误差” */
+.result-grid .error {
+  font-size: 18px;
+  font-weight: bold;
+  color: #c0392b; /* 红色，表示警告或重点 */
+  grid-column: 1 / -1; /* 横跨所有列 */
+  text-align: center;
+}
+
+/* 初始提示信息 */
+.results-panel:has(.result-grid:empty) {
+    text-align: center;
+    color: #7f8c8d;
+}

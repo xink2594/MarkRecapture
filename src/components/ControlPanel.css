@@ -1,0 +1,125 @@
+/* src/components/ControlPanel.css */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 各个部分之间的垂直间距 */
+}
+
+/* 区域标题，例如 "基础设置" */
+.panel h3 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 表单组，用于包裹每一行设置 */
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.form-group label {
+  color: #34495e;
+  flex-shrink: 0; /* 防止标签文本换行 */
+  margin-right: 15px;
+}
+
+/* --- 输入框样式 --- */
+.panel input[type="number"],
+.panel select {
+  width: 120px; /* 给输入控件一个固定宽度 */
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.panel input[type="number"]:focus,
+.panel select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.panel input:disabled,
+.panel select:disabled,
+.panel button:disabled {
+  background-color: #f4f4f4;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 滑块样式 */
+.panel input[type="range"] {
+  width: 120px;
+  cursor: pointer;
+}
+
+/* 复选框的特殊布局和样式 */
+.form-group.checkbox {
+  justify-content: flex-start; /* 左对齐 */
+}
+
+.form-group.checkbox input[type="checkbox"] {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* --- 顶部步骤按钮 --- */
+.steps-buttons {
+  display: grid;
+  grid-template-columns: 1fr; /* 移动端单列 */
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* 在较宽的屏幕上，按钮并排显示 */
+@media (min-width: 480px) {
+  .steps-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.steps-buttons button {
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.steps-buttons button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.steps-buttons button:disabled,
+.reset-button-wrapper button:disabled {
+  background-color: #ecf0f1; /* 浅灰色背景 */
+  color: #bdc3c7;          /* 深灰色文字，形成对比 */
+  cursor: not-allowed;
+  opacity: 1; /* 不再使用透明度，直接定义颜色 */
+}
+
+.reset-button-wrapper .reset-button {
+    background-color: #e74c3c; /* 为重置按钮使用不同的颜色 */
+}
+
+.reset-button-wrapper .reset-button:hover:not(:disabled) {
+    background-color: #c0392b;
+}
+
