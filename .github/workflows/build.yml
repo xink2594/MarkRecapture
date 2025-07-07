@@ -10,6 +10,8 @@ on:
 jobs:
   # 定义一个名为 build-and-release 的任务
   build-and-release:
+    permissions:
+      contents: write
     # 使用“策略矩阵”(strategy matrix) 来为多个平台并行执行此任务
     strategy:
       matrix:
@@ -36,6 +38,11 @@ jobs:
       # 使用 npm ci 而不是 npm install，它更快且能确保使用 package-lock.json 中的精确版本
       - name: Install dependencies
         run: npm ci
+
+      # Windows 使用 electron-winstaller，macOS 使用 electron-packager，Linux 使用 snapcraft
+      - name: Install snapcraft for Linux
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo snap install snapcraft --classic
 
       # 第四步：打包应用程序
       # GITHUB_TOKEN 是 GitHub Actions 自动提供的密钥，用于授权
