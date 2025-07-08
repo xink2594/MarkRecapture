@@ -62,7 +62,6 @@
         }
       ],
       "artifactName": "markrecapture-${version}-${arch}.${ext}",
-      "publisherName": "MarkRecapture",
       "verifyUpdateCodeSignature": false,
       "publish": "never"
     },
