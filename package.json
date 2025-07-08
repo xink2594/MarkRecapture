@@ -1,7 +1,12 @@
 {
   "name": "markrecapture",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "标志重捕法模拟器 - 用于生态学研究的种群估计工具",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
   "main": "electron-main.js",
   "scripts": {
     "dev": "concurrently \"npm:dev:vite\" \"npm:dev:electron\"",
@@ -11,7 +16,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "dist": "npm run build && electron-builder",
-    "dist:win": "npm run build && electron-builder --win"
+    "dist:win": "npm run build && electron-builder --win --publish never"
   },
   "dependencies": {
     "d3": "^7.9.0",
@@ -42,7 +47,8 @@
       "electron-main.js"
     ],
     "directories": {
-      "output": "release"
+      "output": "release",
+      "buildResources": "build"
     },
     "win": {
       "target": [
@@ -54,8 +60,7 @@
           "target": "portable",
           "arch": ["x64"]
         }
-      ],
-      "icon": "public/vite.svg"
+      ]
     },
     "nsis": {
       "oneClick": false,
