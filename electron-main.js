@@ -1,6 +1,6 @@
 // electron-main.js
-import { app, BrowserWindow } from 'electron';
-import path from 'node:path';
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 // 获取 VITE_DEV_SERVER_URL 环境变量，这在开发模式下由 package.json 脚本设置
 const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL'];
