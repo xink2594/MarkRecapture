@@ -60,7 +60,11 @@
           "target": "portable",
           "arch": ["x64"]
         }
-      ]
+      ],
+      "artifactName": "markrecapture-${version}-${arch}.${ext}",
+      "publisherName": "MarkRecapture",
+      "verifyUpdateCodeSignature": false,
+      "publish": "never"
     },
     "nsis": {
       "oneClick": false,
